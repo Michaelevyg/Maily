@@ -1,0 +1,22 @@
+{
+  "name": "maily",
+  "version": "1.0.0",
+  "description": "Maily App",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Michaelevyg/Maily.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Michaelevyg/Maily/issues"
+  },
+  "homepage": "https://github.com/Michaelevyg/Maily#readme",
+  "dependencies": {
+    "express": "^4.15.4"
+  }
+}
