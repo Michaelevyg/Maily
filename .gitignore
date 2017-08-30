@@ -1,5 +1,3 @@
 node_modules
-.idea/Maily.iml
-.idea/modules.xml
-.idea/vcs.xml
-.idea/workspace.xml
+.idea
+config/keys.js
