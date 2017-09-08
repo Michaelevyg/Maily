@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import Payments from './Payments';
 
 class Header extends Component {
   renderContent() {
-    switch (this.props.auth) {
+    switch (this.props.user) {
       case null:
         return;
       case false:
@@ -14,11 +15,13 @@ class Header extends Component {
           </li>
         );
       default:
-        return (
-          <li>
-            <a href="/api/logout">Logout</a>
-          </li>
-        );
+          return [
+            <li key="1"><Payments /></li>,
+            <li key="3" style={{ margin: '0 10px' }}>
+              Credits: {this.props.user.credits}
+            </li>,
+            <li key="2"><a href="/api/logout">Logout</a></li>
+          ];
     }
   }
 
@@ -27,15 +30,13 @@ class Header extends Component {
       <nav>
         <div className="nav-wrapper">
           <Link
-            to={this.props.auth ? '/surveys' : '/'}
+            to={this.props.user ? '/surveys' : '/'}
             className="left brand-logo"
           >
             Emaily
           </Link>
           <ul className="right">
-            <li>
-              {this.renderContent()}
-            </li>
+            {this.renderContent()}
           </ul>
         </div>
       </nav>
@@ -44,7 +45,7 @@ class Header extends Component {
 }
 
 function mapStateToProps(state) {
-  return { auth: state.auth };
+  return { user: state.auth };
 }
 
 export default connect(mapStateToProps)(Header);
