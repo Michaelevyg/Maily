@@ -16,30 +16,32 @@ class Header extends Component {
         );
       default:
           return [
-            <li key="1"><Payments /></li>,
-            <li key="3" style={{ margin: '0 10px' }}>
-              Credits: {this.props.user.credits}
-            </li>,
-            <li key="2"><a href="/api/logout">Logout</a></li>
+            <li key="1" style={{ margin: '0 10px' }}><Payments /></li>,
+            <li key="2"><a>Credits: {this.props.user.credits}</a></li>,
+            <li key="3"><a href="/api/logout">Logout</a></li>
           ];
     }
   }
 
   render() {
     return (
-      <nav>
-        <div className="nav-wrapper">
-          <Link
-            to={this.props.user ? '/surveys' : '/'}
-            className="left brand-logo"
-          >
-            myMaily
-          </Link>
-          <ul className="right">
-            {this.renderContent()}
-          </ul>
-        </div>
-      </nav>
+        <nav>
+            <div className="nav-wrapper">
+                <Link
+                    to={this.props.user ? '/surveys' : '/'}
+                    className="brand-logo"
+                >
+                    myMaily
+                </Link>
+                <a href="#" data-activates="mobile-demo" className="button-collapse"><i className="material-icons">menu</i></a>
+                <ul className="right hide-on-med-and-down">
+                    {this.renderContent()}
+                </ul>
+                <ul className="side-nav" id="mobile-demo">
+                    {this.renderContent()}
+                </ul>
+            </div>
+        </nav>
     );
   }
 }
