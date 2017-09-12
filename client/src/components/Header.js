@@ -33,7 +33,7 @@ class Header extends Component {
             to={this.props.user ? '/surveys' : '/'}
             className="left brand-logo"
           >
-            Emaily
+            myMaily
           </Link>
           <ul className="right">
             {this.renderContent()}
